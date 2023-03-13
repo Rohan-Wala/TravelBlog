@@ -1,0 +1,19 @@
+body {
+	margin-top: 5vh;
+	/* background-image: linear-gradient(to right, #de6238 0%, #fee140 100%); */
+	background-color: #1adfb1;
+	background-image: linear-gradient(
+		287deg,
+		#67d1b8 0%,
+		#d9e7c7 46%,
+		#70ffb8 100%
+	);
+
+	background-repeat: no-repeat;
+	background-size: auto;
+	align-items: center;
+}
+html {
+	margin: auto;
+	width: 100vh;
+}
