@@ -34,7 +34,7 @@ export default function Home() {
 		<div className=" mt-3" style={{ width: "100vh" }}>
 			<div className="text-center">
 				<img
-					src="mountain.jpg"
+					src="public/mountain.jpg"
 					class="img-fluid p-2"
 					alt="Responsive image"
 				></img>
