@@ -25,7 +25,7 @@ export default function CreatePost() {
 			// console.log("values in creat post", localStorage.userid);
 
 			axios({
-				url: "http://travellogserver-production.up.railway.app/post/addpost",
+				url: "https://travellogserver-production.up.railway.app/post/addpost",
 				method: "post",
 				data: formdata,
 				headers: {

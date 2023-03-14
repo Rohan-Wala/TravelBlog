@@ -17,7 +17,7 @@ export default function Home() {
 	var [allpost, setpost] = useState([]);
 	useEffect(() => {
 		axios({
-			url: "http://travellogserver-production.up.railway.app/post/getpost",
+			url: "https://travellogserver-production.up.railway.app/post/getpost",
 			method: "get",
 		}).then(
 			(result) => {

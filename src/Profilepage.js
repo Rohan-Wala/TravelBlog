@@ -13,7 +13,7 @@ export default function Profilepafge() {
 	useEffect(() => {
 		axios({
 			url:
-				"http://travellogserver-production.up.railway.app/users/getuser/" +
+				"https://travellogserver-production.up.railway.app/users/getuser/" +
 				userid,
 			method: "get",
 		}).then(

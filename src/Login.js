@@ -19,7 +19,7 @@ export default function Login() {
 			// console.log("log in login", userdata);
 
 			axios({
-				url: "http://travellogserver-production.up.railway.app/users/login",
+				url: "https://travellogserver-production.up.railway.app/users/login",
 				method: "post",
 				data: userdata,
 				headers: {

@@ -32,7 +32,7 @@ export default function PostTemplate(props) {
 			comment: inputComment,
 		};
 		axios({
-			url: "http://travellogserver-production.up.railway.app/post/comments",
+			url: "https://travellogserver-production.up.railway.app/post/comments",
 			method: "put",
 			data: obj,
 		}).then(
@@ -51,7 +51,7 @@ export default function PostTemplate(props) {
 	function getComment() {
 		axios({
 			url:
-				"http://travellogserver-production.up.railway.app/post/getcomments/" +
+				"https://travellogserver-production.up.railway.app/post/getcomments/" +
 				props.data._id,
 			method: "get",
 		}).then(
@@ -74,7 +74,7 @@ export default function PostTemplate(props) {
 	//work to do
 	function likePost() {
 		axios({
-			url: "http://travellogserver-production.up.railway.app/post/likepost",
+			url: "https://travellogserver-production.up.railway.app/post/likepost",
 			method: "put",
 			data: likePara,
 		}).then(
@@ -90,7 +90,7 @@ export default function PostTemplate(props) {
 	}
 	function unLikePost() {
 		axios({
-			url: "http://travellogserver-production.up.railway.app/post/unlikepost",
+			url: "https://travellogserver-production.up.railway.app/post/unlikepost",
 			method: "delete",
 			data: likePara,
 		}).then(

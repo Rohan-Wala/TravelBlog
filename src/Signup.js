@@ -18,7 +18,7 @@ export default function Signup() {
 		let formdata = new FormData();
 		formdata.append("avatar", file);
 		axios({
-			url: "http://travellogserver-production.up.railway.app/users/upload",
+			url: "https://travellogserver-production.up.railway.app/users/upload",
 			method: "post",
 			data: formdata,
 			headers: {
@@ -59,7 +59,7 @@ export default function Signup() {
 			formdata.append("phone", values.phone);
 
 			// axios({
-			// 	url: "http://localhost:5001/users/upload",
+			// 	url: "https://localhost:5001/users/upload",
 			// 	method: "post",
 			// 	data: formdata,
 			// 	headers: {
@@ -76,7 +76,7 @@ export default function Signup() {
 			// 	});
 
 			axios({
-				url: "http://localhost:5001/users/signup",
+				url: "https://travellogserver-production.up.railway.app/users/signup",
 				method: "post",
 				data: formdata,
 			}).then(
