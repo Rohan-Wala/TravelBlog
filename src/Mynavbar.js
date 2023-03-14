@@ -34,7 +34,7 @@ export default function MYnavbar() {
 					}}
 				>
 					{" "}
-					TRAVEL LOG
+					TRAVEL BLOG
 				</Link>
 				<button
 					class="navbar-toggler"
