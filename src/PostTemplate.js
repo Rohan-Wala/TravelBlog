@@ -117,8 +117,8 @@ export default function PostTemplate(props) {
 								if (props.image) {
 									return (
 										<img
-											// src={`/userimg/${props.image}`}
-											src={`./Travel_log_Client/userimg/${props.image}`}
+											src={`/userimg/${props.image}`}
+											// src={`./Travel_log_Client/userimg/${props.image}`}
 											class="rounded-circle me-3"
 											height="50px"
 											width="50px"
@@ -128,8 +128,8 @@ export default function PostTemplate(props) {
 								} else {
 									return (
 										<img
-											// src={`/userimg/${props.data.userid.image}`}
-											src={`./Travel_log_Client/userimg/${props.data.userid.image}`}
+											src={`/userimg/${props.data.userid.image}`}
+											// src={`./Travel_log_Client/userimg/${props.data.userid.image}`}
 											class="rounded-circle me-3"
 											height="50px"
 											width="50px"
@@ -161,8 +161,8 @@ export default function PostTemplate(props) {
 					>
 						<img
 							class="img-fluid p-1"
-							// src={`/postimages/${props.data.images[0]}`}
-							src={`./Travel_log_Client/postImages/${props.data.images[0]}`}
+							src={`/postimages/${props.data.images[0]}`}
+							// src={`./Travel_log_Client/postImages/${props.data.images[0]}`}
 							alt="Card image cap"
 							style={{ width: "100%", height: "25rem" }}
 						/>
@@ -270,8 +270,8 @@ export default function PostTemplate(props) {
 																			<div class="d-flex justify-content-start">
 																				<div class="d-flex me-3 align-items-top">
 																					<img
-																						// src={`/userimg/${each.userid.image}`}
-																						src={`./Travel_log_Client/userimg/${each.userid.image}`}
+																						src={`/userimg/${each.userid.image}`}
+																						// src={`./Travel_log_Client/userimg/${each.userid.image}`}
 																						alt="avatar"
 																						class="rounded-circle"
 																						width="30"

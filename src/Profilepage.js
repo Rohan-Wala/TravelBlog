@@ -53,8 +53,8 @@ export default function Profilepafge() {
 								<div class="d-flex text-black">
 									<div class="flex-shrink-0">
 										<img
-											// src={`/userimg/${userData.image}`}
-											src={`./Travel_log_Client/userimg/${userData.image}`}
+											src={`/userimg/${userData.image}`}
+											// src={`./Travel_log_Client/userimg/${userData.image}`}
 											alt="Generic placeholder image"
 											class="img-fluid mt-3"
 											style={{ width: "30vh", height: "25vh" }}
