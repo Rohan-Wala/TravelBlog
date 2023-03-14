@@ -17,7 +17,7 @@ export default function Home() {
 	var [allpost, setpost] = useState([]);
 	useEffect(() => {
 		axios({
-			url: "http://localhost:5001/post/getpost",
+			url: "http://travellogserver-production.up.railway.app/post/getpost",
 			method: "get",
 		}).then(
 			(result) => {
@@ -34,11 +34,8 @@ export default function Home() {
 		<div className=" mt-3" style={{ width: "100vh" }}>
 			<div className="text-center">
 				<img
-<<<<<<< HEAD
-					src="./mountain.jpg"
-=======
+					// src="mountain.jpg"
 					src="./Travel_log_Client/mountain.jpg"
->>>>>>> 302acd12944acc0646411c42a9641ac120ddd753
 					class="img-fluid p-2"
 					alt="Responsive image"
 				></img>
