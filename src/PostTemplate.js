@@ -162,7 +162,7 @@ export default function PostTemplate(props) {
 						<img
 							class="img-fluid p-1"
 							// src={`/postimages/${props.data.images[0]}`}
-							src={`./Travel_log_Client/postimages/${props.data.images[0]}`}
+							src={`./Travel_log_Client/postImages/${props.data.images[0]}`}
 							alt="Card image cap"
 							style={{ width: "100%", height: "25rem" }}
 						/>
