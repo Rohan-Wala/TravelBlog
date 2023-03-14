@@ -18,7 +18,7 @@ export default function Signup() {
 		let formdata = new FormData();
 		formdata.append("avatar", file);
 		axios({
-			url: "http://localhost:5001/users/upload",
+			url: "http://travellogserver-production.up.railway.app/users/upload",
 			method: "post",
 			data: formdata,
 			headers: {
