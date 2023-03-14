@@ -23,6 +23,7 @@ export default function Signup() {
 			data: formdata,
 			headers: {
 				"content-type": "multipart/form-data",
+				"Access-Control-Allow-Origin": "*",
 			},
 		})
 			.then((result) => {

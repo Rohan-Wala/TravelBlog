@@ -16,6 +16,7 @@ export default function Profilepafge() {
 				"https://travellogserver-production.up.railway.app/users/getuser/" +
 				userid,
 			method: "get",
+			headers: { "Access-Control-Allow-Origin": "*" },
 		}).then(
 			(result) => {
 				console.log("log in get user details", result.data);
@@ -28,7 +29,7 @@ export default function Profilepafge() {
 				console.log("error in fe", error);
 			}
 		);
-	}, [userData]);
+	}, []);
 
 	var posts = userData.posts;
 	var Followers = userData.followers;
@@ -53,7 +54,7 @@ export default function Profilepafge() {
 								<div class="d-flex text-black">
 									<div class="flex-shrink-0">
 										<img
-											src={`./userimg/${userData.image}`}
+											src={`/userimg/${userData.image}`}
 											// src={`./Travel_log_Client/userimg/${userData.image}`}
 											alt="Generic placeholder image"
 											class="img-fluid mt-3"
