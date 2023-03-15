@@ -50,7 +50,9 @@ export default function PostTemplate(props) {
 	var [allcomment, setcomments] = useState([]);
 	function getComment() {
 		axios({
-			url: "https://travellogserver-production.up.railway.app/post/getcomments/" + props.data._id,
+			url:
+				"https://travellogserver-production.up.railway.app/post/getcomments/" +
+				props.data._id,
 			method: "get",
 		}).then(
 			(result) => {
@@ -115,7 +117,7 @@ export default function PostTemplate(props) {
 								if (props.image) {
 									return (
 										<img
-											src={`/userimg/${props.image}`}
+											src={`userimg/${props.image}`}
 											// src={`./Travel_log_Client/userimg/${props.image}`}
 											class="rounded-circle me-3"
 											height="50px"
