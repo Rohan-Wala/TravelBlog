@@ -35,9 +35,6 @@ export default function PostTemplate(props) {
 			url: "https://travellogserver-production.up.railway.app/post/comments",
 			method: "put",
 			data: obj,
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
 		}).then(
 			(result) => {
 				// console.log(result);
@@ -53,13 +50,8 @@ export default function PostTemplate(props) {
 	var [allcomment, setcomments] = useState([]);
 	function getComment() {
 		axios({
-			url:
-				"https://travellogserver-production.up.railway.app/post/getcomments/" +
-				props.data._id,
+			url: "https://travellogserver-production.up.railway.app/post/getcomments/" + props.data._id,
 			method: "get",
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
 		}).then(
 			(result) => {
 				setcomments(result.data);
@@ -83,9 +75,6 @@ export default function PostTemplate(props) {
 			url: "https://travellogserver-production.up.railway.app/post/likepost",
 			method: "put",
 			data: likePara,
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
 		}).then(
 			(result) => {
 				console.log("result after post like ", result);
@@ -102,9 +91,6 @@ export default function PostTemplate(props) {
 			url: "https://travellogserver-production.up.railway.app/post/unlikepost",
 			method: "delete",
 			data: likePara,
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
 		}).then(
 			(result) => {
 				console.log("result after post unlike ", result);
@@ -241,7 +227,6 @@ export default function PostTemplate(props) {
 						</div>
 						<div>
 							<p class="card-text collapse" id={Caid}>
-								<pre>{props.data.caption}</pre>
 								<div class="row d-flex justify-content-center">
 									<div class="">
 										<div

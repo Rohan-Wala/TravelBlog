@@ -3,13 +3,14 @@ import CreatePost from "./CreatePost";
 import Home from "./Home";
 import Login from "./Login";
 import MYnavbar from "./Mynavbar";
-import Profilepafge from "./Profilepage";
+import Profilepage from "./Profilepage";
+import ProfilePage2 from "./ProfilePage2";
 import Radiobut from "./Radiobut";
 import Signup from "./Signup";
 import Uploadimg from "./Uploadimg";
 export default function Myrouter() {
 	return (
-		<BrowserRouter basename="/Travel_log_Client">
+		<BrowserRouter>
 			<MYnavbar></MYnavbar>
 			<Routes>
 				<Route path="/" element={<Home></Home>}></Route>
@@ -19,7 +20,11 @@ export default function Myrouter() {
 				<Route path="/uploadimages" element={<Uploadimg></Uploadimg>}></Route>
 				<Route
 					path="/profile/:userid"
-					element={<Profilepafge></Profilepafge>}
+					element={<Profilepage></Profilepage>}
+				></Route>
+				<Route
+					path="profilePage2/:userid"
+					element={<ProfilePage2></ProfilePage2>}
 				></Route>
 				<Route path="/createPost" element={<CreatePost></CreatePost>}></Route>
 			</Routes>

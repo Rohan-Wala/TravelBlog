@@ -19,9 +19,6 @@ export default function Home() {
 		axios({
 			url: "https://travellogserver-production.up.railway.app/post/getpost",
 			method: "get",
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
 		}).then(
 			(result) => {
 				setpost(result.data.allpost);

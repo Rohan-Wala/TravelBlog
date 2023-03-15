@@ -24,7 +24,6 @@ export default function Login() {
 				data: userdata,
 				headers: {
 					Authorization: localStorage.token,
-					"Access-Control-Allow-Origin": "*",
 				},
 			})
 				.then(

@@ -23,7 +23,6 @@ export default function Signup() {
 			data: formdata,
 			headers: {
 				"content-type": "multipart/form-data",
-				"Access-Control-Allow-Origin": "*",
 			},
 		})
 			.then((result) => {
@@ -60,7 +59,7 @@ export default function Signup() {
 			formdata.append("phone", values.phone);
 
 			// axios({
-			// 	url: "https://localhost:5001/users/upload",
+			// 	url: "http://localhost:5001/users/upload",
 			// 	method: "post",
 			// 	data: formdata,
 			// 	headers: {

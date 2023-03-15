@@ -12,11 +12,8 @@ export default function Profilepafge() {
 	var posts;
 	useEffect(() => {
 		axios({
-			url:
-				"https://travellogserver-production.up.railway.app/users/getuser/" +
-				userid,
+			url: "https://travellogserver-production.up.railway.app/users/getuser/" + userid,
 			method: "get",
-			headers: { "Access-Control-Allow-Origin": "*" },
 		}).then(
 			(result) => {
 				console.log("log in get user details", result.data);
@@ -54,6 +51,7 @@ export default function Profilepafge() {
 								<div class="d-flex text-black">
 									<div class="flex-shrink-0">
 										<img
+											// src="mountain.jpg"
 											src={`/userimg/${userData.image}`}
 											// src={`./Travel_log_Client/userimg/${userData.image}`}
 											alt="Generic placeholder image"
