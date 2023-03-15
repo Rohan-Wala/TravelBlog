@@ -4,7 +4,6 @@ import Home from "./Home";
 import Login from "./Login";
 import MYnavbar from "./Mynavbar";
 import Profilepage from "./Profilepage";
-import ProfilePage2 from "./ProfilePage2";
 import Radiobut from "./Radiobut";
 import Signup from "./Signup";
 import Uploadimg from "./Uploadimg";
@@ -22,10 +21,7 @@ export default function Myrouter() {
 					path="/profile/:userid"
 					element={<Profilepage></Profilepage>}
 				></Route>
-				<Route
-					path="profilePage2/:userid"
-					element={<ProfilePage2></ProfilePage2>}
-				></Route>
+
 				<Route path="/createPost" element={<CreatePost></CreatePost>}></Route>
 			</Routes>
 		</BrowserRouter>
