@@ -9,7 +9,7 @@ import Signup from "./Signup";
 import Uploadimg from "./Uploadimg";
 export default function Myrouter() {
 	return (
-		<BrowserRouter basename="/Travel_log_Client">
+		<BrowserRouter basename="/Travel_log_Client/">
 			<MYnavbar></MYnavbar>
 			<Routes>
 				<Route path="/" element={<Home></Home>}></Route>
