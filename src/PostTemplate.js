@@ -128,7 +128,7 @@ export default function PostTemplate(props) {
 								} else {
 									return (
 										<img
-											src={`/userimg/${props.data.userid.image}`}
+											src={`userimg/${props.data.userid.image}`}
 											// src={`./Travel_log_Client/userimg/${props.data.userid.image}`}
 											class="rounded-circle me-3"
 											height="50px"
