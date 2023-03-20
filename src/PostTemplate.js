@@ -142,7 +142,7 @@ export default function PostTemplate(props) {
 
 						<div>
 							<Link
-								to={"/profile/" + props.data.userid._id}
+								to={"profile/" + props.data.userid._id}
 								style={{ textDecoration: "none" }}
 							>
 								<h5 class="card-title font-weight-bold mb-2">
@@ -161,7 +161,7 @@ export default function PostTemplate(props) {
 					>
 						<img
 							class="img-fluid p-1"
-							src={`/postImages/${props.data.images[0]}`}
+							src={`postImages/${props.data.images[0]}`}
 							// src={`./Travel_log_Client/postImages/${props.data.images[0]}`}
 							alt="Card image cap"
 							style={{ width: "100%", height: "25rem" }}
@@ -269,7 +269,7 @@ export default function PostTemplate(props) {
 																			<div class="d-flex justify-content-start">
 																				<div class="d-flex me-3 align-items-top">
 																					<img
-																						src={`/userimg/${each.userid.image}`}
+																						src={`userimg/${each.userid.image}`}
 																						// src={`./Travel_log_Client/userimg/${each.userid.image}`}
 																						alt="avatar"
 																						class="rounded-circle"

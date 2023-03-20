@@ -12,7 +12,9 @@ export default function Profilepafge() {
 	var posts;
 	useEffect(() => {
 		axios({
-			url: "https://travellogserver-production.up.railway.app/users/getuser/" + userid,
+			url:
+				"https://travellogserver-production.up.railway.app/users/getuser/" +
+				userid,
 			method: "get",
 		}).then(
 			(result) => {
@@ -52,7 +54,7 @@ export default function Profilepafge() {
 									<div class="flex-shrink-0">
 										<img
 											// src="mountain.jpg"
-											src={`/userimg/${userData.image}`}
+											src={`userimg/${userData.image}`}
 											// src={`./Travel_log_Client/userimg/${userData.image}`}
 											alt="Generic placeholder image"
 											class="img-fluid mt-3"
