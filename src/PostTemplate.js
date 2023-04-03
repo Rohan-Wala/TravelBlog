@@ -12,6 +12,10 @@ export default function PostTemplate(props) {
 
 	var Caid = "commentSection" + id;
 	var Csid = "#" + "commentSection" + id;
+
+	var CCid = "Carousel" + id;
+	var CCAid = "#" + "Carousel" + id;
+
 	var likePara = {
 		userid: localStorage.userid,
 		postid: props.data._id,
@@ -117,7 +121,7 @@ export default function PostTemplate(props) {
 								if (props.image) {
 									return (
 										<img
-											src={`userimg/${props.image}`}
+											src={`/userimg/${props.image}`}
 											// src={`./Travel_log_Client/userimg/${props.image}`}
 											class="rounded-circle me-3"
 											height="50px"
@@ -128,7 +132,7 @@ export default function PostTemplate(props) {
 								} else {
 									return (
 										<img
-											src={`userimg/${props.data.userid.image}`}
+											src={`/userimg/${props.data.userid.image}`}
 											// src={`./Travel_log_Client/userimg/${props.data.userid.image}`}
 											class="rounded-circle me-3"
 											height="50px"
@@ -150,8 +154,8 @@ export default function PostTemplate(props) {
 								</h5>
 							</Link>
 							<p class="card-text">
-								<i class="far fa-clock pe-2"></i>07/24/2018 // will give
-								location
+								<i class="far fa-clock pe-2"></i>
+								{props.data.location}
 							</p>
 						</div>
 					</div>
@@ -159,19 +163,112 @@ export default function PostTemplate(props) {
 						class="bg-image hover-overlay ripple rounded-0"
 						data-mdb-ripple-color="light"
 					>
-						<img
-							class="img-fluid p-1"
-							src={`postImages/${props.data.images[0]}`}
-							// src={`./Travel_log_Client/postImages/${props.data.images[0]}`}
-							alt="Card image cap"
-							style={{ width: "100%", height: "25rem" }}
-						/>
-						<a href="#!">
-							<div
-								class="mask"
-								// style="background-color: rgba(251, 251, 251, 0.15);"
-							></div>
-						</a>
+						{(() => {
+							if (props.data.images.length == 1) {
+								return (
+									<img
+										class="img-fluid p-1"
+										src={`/postImages/${props.data.images[0]}`}
+										alt="Card image cap"
+										style={{ width: "100%", height: "25rem" }}
+									/>
+								);
+							} else {
+								return (
+									<div
+										id={CCid}
+										class="carousel slide carousel-fade"
+										data-bs-touch="false"
+										data-bs-interval="false"
+									>
+										<ol class="carousel-indicators">
+											{props.data.images.map((each, index) => {
+												if (index == 0) {
+													return (
+														<li
+															data-bs-target={CCAid}
+															data-bs-slide-to={index}
+															class="active"
+														></li>
+													);
+												} else {
+													return (
+														<li
+															data-bs-target={CCAid}
+															data-bs-slide-to={index}
+														></li>
+													);
+												}
+											})}
+											{/* <li
+												data-bs-target="#carouselExampleControlsNoTouching"
+												data-bs-slide-to="0"
+												class="active"
+											></li>
+											<li
+												data-bs-target="#carouselExampleControlsNoTouching"
+												data-bs-slide-to="1"
+											></li>
+											<li
+												data-bs-target="#carouselExampleControlsNoTouching"
+												data-bs-slide-to="2"
+											></li> */}
+										</ol>
+										<div class="carousel-inner">
+											{props.data.images.map((each, index) => {
+												if (index == 0) {
+													return (
+														<div class="carousel-item active">
+															<img
+																src={`/postImages/${each}`}
+																style={{ width: "100%", height: "25rem" }}
+																alt="..."
+															/>
+														</div>
+													);
+												} else {
+													return (
+														<div class="carousel-item">
+															<img
+																src={`/postImages/${each}`}
+																style={{ width: "100%", height: "25rem" }}
+																alt="..."
+															/>
+														</div>
+													);
+												}
+											})}
+										</div>
+										<button
+											class="carousel-control-prev"
+											type="button"
+											data-bs-target={CCAid}
+											data-bs-slide="prev"
+										>
+											<span
+												class="carousel-control-prev-icon"
+												aria-hidden="true"
+												style={{ opacity: 0 }}
+											></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button
+											class="carousel-control-next "
+											type="button"
+											data-bs-target={CCAid}
+											data-bs-slide="next"
+										>
+											<span
+												class="carousel-control-next-icon"
+												aria-hidden="true"
+												style={{ opacity: 0 }}
+											></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+								);
+							}
+						})()}
 					</div>
 					<div class="card-body">
 						<h6>{props.data.title}</h6>
@@ -269,7 +366,7 @@ export default function PostTemplate(props) {
 																			<div class="d-flex justify-content-start">
 																				<div class="d-flex me-3 align-items-top">
 																					<img
-																						src={`userimg/${each.userid.image}`}
+																						src={`/userimg/${each.userid.image}`}
 																						// src={`./Travel_log_Client/userimg/${each.userid.image}`}
 																						alt="avatar"
 																						class="rounded-circle"
