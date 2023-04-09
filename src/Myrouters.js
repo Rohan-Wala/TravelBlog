@@ -7,6 +7,7 @@ import Profilepage from "./Profilepage";
 import Radiobut from "./Radiobut";
 import Signup from "./Signup";
 import Uploadimg from "./Uploadimg";
+import Test from "./Test";
 export default function Myrouter() {
 	return (
 		<BrowserRouter basename="/TravelBlog">
@@ -15,6 +16,7 @@ export default function Myrouter() {
 				<Route path="/" element={<Home></Home>}></Route>
 				<Route path="/signup" element={<Signup></Signup>}></Route>
 				<Route path="/login" element={<Login></Login>}></Route>
+				<Route path="/test" element={<Test></Test>}></Route>
 				<Route path="/radio" element={<Radiobut></Radiobut>}></Route>
 				<Route path="/uploadimages" element={<Uploadimg></Uploadimg>}></Route>
 				<Route
