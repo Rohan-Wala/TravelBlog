@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+>>>>>>> master
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
 	font-size: 1rem;
 	line-height: 2.15;
@@ -50,8 +54,64 @@
 	top: 0;
 	width: 100%;
 }
+<<<<<<< HEAD
 
 .picture-src {
 	width: 100%;
 }
 /*Profile Pic End*/
+=======
+.img {
+	vertical-align: middle;
+	border-style: none;
+}
+
+.card{
+		background-color: transparent;
+		backdrop-filter: blur(12px);
+		/* border-color: transparent;	 */
+		
+
+}
+/* .container-fluid{
+	backdrop-filter: blur(12px);
+} */
+
+.form-control{
+	background-color: #CAD5E2;
+	opacity: 0.5;
+	color: #ffffff;
+}
+
+/* .btn{
+	background-color: transparent;
+} */
+
+
+
+button.signup:hover{
+	background-color: #05ae0e;
+}
+
+.logo{
+	font-family: 'Oswald',sans-serif;
+	text-align: center;
+}
+
+.gradient-custom-4 {
+	/* fallback for old browsers */
+	background: #84fab0;
+	
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+	
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+	}
+
+
+
+
+/*Profile Pic End*/
+
+>>>>>>> master

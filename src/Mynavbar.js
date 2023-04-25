@@ -22,19 +22,32 @@ export default function MYnavbar() {
 	// console.log("log in navbar", isLoggedIn);
 	return (
 		<nav
+<<<<<<< HEAD
 			class="navbar navbar-expand-lg navbar-light bg-success m-auto  fixed-top"
 			style={{ width: "100vh" }}
+=======
+			class="navbar navbar-expand-lg navbar-light m-auto  fixed-top"
+			style={{ width: "100vh", backgroundColor: "#EB4D4B" }}
+>>>>>>> master
 		>
 			<div class="container-fluid  ">
 				<Link
 					to={"/"}
+<<<<<<< HEAD
 					style={{ textDecoration: "none", color: "black" }}
+=======
+					style={{ textDecoration: "none", color: "white" }}
+>>>>>>> master
 					onClick={() => {
 						document.documentElement.scrollTop = 0;
 					}}
 				>
 					{" "}
+<<<<<<< HEAD
 					TRAVEL BLOG
+=======
+					TOURISTA
+>>>>>>> master
 				</Link>
 				<button
 					class="navbar-toggler"
@@ -50,6 +63,7 @@ export default function MYnavbar() {
 				<div class="collapse navbar-collapse " id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item ms-3 mt-1">
+<<<<<<< HEAD
 							<Link to={"/"}>
 								<BiSearch size={"1.7rem"} color="black"></BiSearch>
 							</Link>
@@ -58,6 +72,16 @@ export default function MYnavbar() {
 							<Link to={"/createPost"}>
 								<GoDiffAdded size={"1.5rem"} color="black"></GoDiffAdded>
 							</Link>
+=======
+							{isLoggedIn && (<Link to={"/"}>
+								<BiSearch size={"1.7rem"} color="white"></BiSearch>
+							</Link>)}
+						</li>
+						<li class="nav-item ms-3 mt-1">
+							{isLoggedIn && (<Link to={"/createPost"}>
+								<GoDiffAdded size={"1.5rem"} color="white"></GoDiffAdded>
+							</Link>)}
+>>>>>>> master
 						</li>
 					</ul>
 					<form class="d-flex">
@@ -65,13 +89,21 @@ export default function MYnavbar() {
 							{isLoggedIn && (
 								<div>
 									<Link to={"/profile/" + localStorage.userid}>
+<<<<<<< HEAD
 										<CgProfile size={"2.5rem"}></CgProfile>
+=======
+										<CgProfile size={"2.5rem"} color="white"></CgProfile>
+>>>>>>> master
 									</Link>
 								</div>
 							)}
 							{!isLoggedIn && (
 								<Link to={"/login"}>
+<<<<<<< HEAD
 									<CgProfile size={"2.5rem"}></CgProfile>
+=======
+									<CgProfile size={"2.5rem"} color="white"></CgProfile>
+>>>>>>> master
 								</Link>
 							)}
 						</button>
@@ -85,7 +117,11 @@ export default function MYnavbar() {
 							>
 								<BsThreeDotsVertical
 									size={"1.6rem"}
+<<<<<<< HEAD
 									color={"black"}
+=======
+									color={"white"}
+>>>>>>> master
 								></BsThreeDotsVertical>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuicon">

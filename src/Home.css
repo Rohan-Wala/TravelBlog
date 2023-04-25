@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
 	margin-top: 5vh;
 	/* background-image: linear-gradient(to right, #de6238 0%, #fee140 100%); */
 	background-color: #1adfb1;
@@ -7,6 +8,15 @@ body {
 		#67d1b8 0%,
 		#d9e7c7 46%,
 		#0b5f35 100%
+=======
+	/* padding-top: 6vh; */
+	/* background-image: linear-gradient(to right, #de6238 0%, #fee140 100%); */
+	background-color: #ffffff;
+	background-image: linear-gradient(
+		287deg,
+		#FFFFFF 100%,
+		#758283 100%
+>>>>>>> master
 	);
 
 	background-repeat: no-repeat;
@@ -17,3 +27,26 @@ html {
 	margin: auto;
 	width: 100vh;
 }
+<<<<<<< HEAD
+=======
+.border{
+	align-items: center;
+	border-bottom: 1px solid #dadde1;
+	display: flex;
+	margin: 10px 1px;
+	text-align: center;
+	
+}
+.signup{
+	background-color: #42b72a;
+	border-color: #42b72a;
+	border-radius: 6px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #ffffff;
+	display: inline-block;
+	
+}
+
+
+>>>>>>> master
