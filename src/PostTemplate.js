@@ -1,13 +1,4 @@
 import axios from "axios";
-<<<<<<< HEAD
-import { useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaRegComment } from "react-icons/fa";
-import { Link } from "react-router-dom";
-export default function PostTemplate(props) {
-	// console.log("all posts in fe ........................");
-	console.log(props.data);
-=======
 import { useContext, useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -19,7 +10,6 @@ export default function PostTemplate(props) {
 	const date_func = useContext(Datecontext);
 	//console.log(date_func)
 	// console.log(props.data);
->>>>>>> master
 	var id = props.data._id;
 	var aid = "collapseContent" + id;
 	var sid = "#" + "collapseContent" + id;
@@ -34,11 +24,7 @@ export default function PostTemplate(props) {
 		userid: localStorage.userid,
 		postid: props.data._id,
 	};
-<<<<<<< HEAD
-
-=======
 	let date = props.data.date;
->>>>>>> master
 	var [likeCount, setCount] = useState(props.data.likes.length);
 	var [isLiked, setIsLiked] = useState();
 
@@ -54,11 +40,7 @@ export default function PostTemplate(props) {
 			comment: inputComment,
 		};
 		axios({
-<<<<<<< HEAD
-			url: "https://travellogserver-production.up.railway.app/post/comments",
-=======
 			url: "http://localhost:5001/post/comments",
->>>>>>> master
 			method: "put",
 			data: obj,
 		}).then(
@@ -76,13 +58,7 @@ export default function PostTemplate(props) {
 	var [allcomment, setcomments] = useState([]);
 	function getComment() {
 		axios({
-<<<<<<< HEAD
-			url:
-				"https://travellogserver-production.up.railway.app/post/getcomments/" +
-				props.data._id,
-=======
 			url: "http://localhost:5001/post/getcomments/" + props.data._id,
->>>>>>> master
 			method: "get",
 		}).then(
 			(result) => {
@@ -94,10 +70,7 @@ export default function PostTemplate(props) {
 			}
 		);
 	}
-<<<<<<< HEAD
-=======
 	//console.log(allcomment)
->>>>>>> master
 
 	props.data.likes.map((each) => {
 		if (localStorage.userid == each) {
@@ -108,11 +81,7 @@ export default function PostTemplate(props) {
 	//work to do
 	function likePost() {
 		axios({
-<<<<<<< HEAD
-			url: "https://travellogserver-production.up.railway.app/post/likepost",
-=======
 			url: "http://localhost:5001/post/likepost",
->>>>>>> master
 			method: "put",
 			data: likePara,
 		}).then(
@@ -128,11 +97,7 @@ export default function PostTemplate(props) {
 	}
 	function unLikePost() {
 		axios({
-<<<<<<< HEAD
-			url: "https://travellogserver-production.up.railway.app/post/unlikepost",
-=======
 			url: "http://localhost:5001/post/unlikepost",
->>>>>>> master
 			method: "delete",
 			data: likePara,
 		}).then(
@@ -159,12 +124,7 @@ export default function PostTemplate(props) {
 								if (props.image) {
 									return (
 										<img
-<<<<<<< HEAD
-											src={`/userimg/${props.image}`}
-											// src={`./Travel_log_Client/userimg/${props.image}`}
-=======
 											src={props.image}
->>>>>>> master
 											class="rounded-circle me-3"
 											height="50px"
 											width="50px"
@@ -174,12 +134,7 @@ export default function PostTemplate(props) {
 								} else {
 									return (
 										<img
-<<<<<<< HEAD
-											src={`/userimg/${props.data.userid.image}`}
-											// src={`./Travel_log_Client/userimg/${props.data.userid.image}`}
-=======
 											src={props.data.userid.image}
->>>>>>> master
 											class="rounded-circle me-3"
 											height="50px"
 											width="50px"
@@ -212,14 +167,6 @@ export default function PostTemplate(props) {
 						{(() => {
 							if (props.data.images.length == 1) {
 								return (
-<<<<<<< HEAD
-									<img
-										class="img-fluid p-1"
-										src={`/postImages/${props.data.images[0]}`}
-										alt="Card image cap"
-										style={{ width: "100%", height: "25rem" }}
-									/>
-=======
 									// return (
 									// 	<img
 									// 		class="img-fluid p-1"
@@ -256,7 +203,6 @@ export default function PostTemplate(props) {
 											}
 										})()}
 									</>
->>>>>>> master
 								);
 							} else {
 								return (
@@ -285,22 +231,6 @@ export default function PostTemplate(props) {
 													);
 												}
 											})}
-<<<<<<< HEAD
-											{/* <li
-												data-bs-target="#carouselExampleControlsNoTouching"
-												data-bs-slide-to="0"
-												class="active"
-											></li>
-											<li
-												data-bs-target="#carouselExampleControlsNoTouching"
-												data-bs-slide-to="1"
-											></li>
-											<li
-												data-bs-target="#carouselExampleControlsNoTouching"
-												data-bs-slide-to="2"
-											></li> */}
-=======
->>>>>>> master
 										</ol>
 										<div class="carousel-inner">
 											{props.data.images.map((each, index) => {
@@ -308,11 +238,7 @@ export default function PostTemplate(props) {
 													return (
 														<div class="carousel-item active">
 															<img
-<<<<<<< HEAD
-																src={`/postImages/${each}`}
-=======
 																src={each}
->>>>>>> master
 																style={{ width: "100%", height: "25rem" }}
 																alt="..."
 															/>
@@ -322,11 +248,7 @@ export default function PostTemplate(props) {
 													return (
 														<div class="carousel-item">
 															<img
-<<<<<<< HEAD
-																src={`/postImages/${each}`}
-=======
 																src={each}
->>>>>>> master
 																style={{ width: "100%", height: "25rem" }}
 																alt="..."
 															/>
@@ -368,10 +290,7 @@ export default function PostTemplate(props) {
 					</div>
 					<div class="card-body">
 						<h6>{props.data.title}</h6>
-<<<<<<< HEAD
-=======
 						<p>{date_func(date)}</p>
->>>>>>> master
 						{/* <p class="card-text collapse" id="collapseContent"> */}
 						<p class="card-text collapse" id={aid}>
 							<pre>{props.data.caption}</pre>
@@ -432,18 +351,10 @@ export default function PostTemplate(props) {
 											class="card shadow-0 border"
 											style={{ backgroundColor: "#f0f2f5" }}
 										>
-<<<<<<< HEAD
-											<div class="card-body p-1">
-												<div class="form-outline mb-1">
-													<input
-														type="text"
-														// id="addANote"
-=======
 											<div class="card-body w-100 ">
 												<div class="form-outline">
 													<input
 														type="text"
->>>>>>> master
 														class="form-control"
 														placeholder="Type comment..."
 														onChange={(e) => {
@@ -452,15 +363,6 @@ export default function PostTemplate(props) {
 														}}
 														value={inputComment}
 													/>
-<<<<<<< HEAD
-													<button
-														class="btn btn-light me-1"
-														for="addANote"
-														onClick={addcomment}
-													>
-														+ Add a Comment
-													</button>
-=======
 													<div className="d-flex">
 														<button
 															class="btn btn-light me-1"
@@ -470,7 +372,6 @@ export default function PostTemplate(props) {
 															+ Add a Comment
 														</button>
 													</div>
->>>>>>> master
 													{isAlertVisible && <lable>Comment Added</lable>}
 												</div>
 												{
@@ -483,39 +384,24 @@ export default function PostTemplate(props) {
 																	<div class="card mb-1">
 																		<div class="card-body">
 																			<div class="d-flex justify-content-start">
-<<<<<<< HEAD
-																				<div class="d-flex me-3 align-items-top">
-																					<img
-																						src={`/userimg/${each.userid.image}`}
-																						// src={`./Travel_log_Client/userimg/${each.userid.image}`}
-=======
 																				<div class="d-flex ">
 																					<img
 																						src={each.userid.image}
->>>>>>> master
 																						alt="avatar"
 																						class="rounded-circle"
 																						width="30"
 																						height="30"
 																					/>
 																					<h6>
-<<<<<<< HEAD
-																						<p class="small  ms-2">
-=======
 																						<p class="small  ms-2 me-2">
->>>>>>> master
 																							{each.userid.name}:
 																						</p>
 																					</h6>
 																				</div>
-<<<<<<< HEAD
-																				<pre>{each.text}</pre>
-=======
 																				<pre className="ms-1 me-3">
 																					{each.text}
 																				</pre>
 																				<pre>{date_func(each.date)}</pre>
->>>>>>> master
 																			</div>
 																		</div>
 																	</div>

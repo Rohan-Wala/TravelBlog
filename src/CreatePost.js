@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import axios from "axios";
-import { useFormik } from "formik";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./Createpost.css";
-export default function CreatePost() {
-=======
 import { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import SpeechRecognition, {
@@ -21,16 +13,10 @@ export default function CreatePost() {
 	const [caption, setCaption] = useState("");
 	const [location, setLocation] = useState("");
 
->>>>>>> master
 	var [postimg, setFile] = useState([]);
 	var [previewImg, setPrevFile] = useState();
 	var [previewImgs, setPrevFiles] = useState([]);
 	var [buttontext, setButtonText] = useState("Single");
-<<<<<<< HEAD
-	var navigate = useNavigate();
-	// var formdata = new FormData();
-	// formdata.append("images", postimg);
-=======
 
 	var navigate = useNavigate();
 
@@ -96,57 +82,12 @@ export default function CreatePost() {
 	};
 
 	//function to handle single and multiple images
->>>>>>> master
 
 	function singleAndMultiple() {
 		if (buttontext == "Single") setButtonText("Multiple");
 		else setButtonText("Single");
 	}
 
-<<<<<<< HEAD
-	// for (let i = 0; i < files.length; i++) {
-	// 	formData.append(files[i].name, files[i])
-	//   }
-
-	const formik = useFormik({
-		initialValues: {
-			title: "",
-			caption: "",
-			location: "",
-		},
-		onSubmit: (values) => {
-			var formdata = new FormData();
-			// formdata.append("pImages", postimg);
-			for (let i = 0; i < postimg.length; i++) {
-				formdata.append("pImages", postimg[i]);
-			}
-			formdata.append("title", values.title);
-			formdata.append("caption", values.caption);
-			formdata.append("location", values.location);
-			formdata.append("userid", localStorage.userid);
-
-			// console.log("values in creat post", localStorage.userid);
-
-			axios({
-				url: "https://travellogserver-production.up.railway.app/post/addpost",
-				method: "post",
-				data: formdata,
-				headers: {
-					"content-type": "multipart/form-data",
-				},
-			}).then(
-				(result) => {
-					console.log("resilt in add post fe", result.data.message);
-					navigate("/");
-					alert(result.data.message);
-				},
-				(err) => {
-					console.log("error in add post fe", err);
-				}
-			);
-		},
-	});
-=======
 	//function to create post
 
 	function createPost() {
@@ -186,37 +127,23 @@ export default function CreatePost() {
 	if (!browserSupportsSpeechRecognition) {
 		return alert("Browser does not support Speech Recognition");
 	}
->>>>>>> master
 
 	return (
 		<div class="container ">
 			<div class="row mb-5">
 				<div>
-<<<<<<< HEAD
-					<h1>Create post</h1>
-
-					<form
-						onSubmit={formik.handleSubmit}
-						enctype="multipart/form-data"
-						method="post"
-=======
 					<h1 className="text-center">Create post</h1>
 
 					<form
 						enctype="multipart/form-data"
 						// method="post"
->>>>>>> master
 					>
 						<div class="form-group mb-3">
 							<div class="picture-container">
 								<div class="picture_post">
 									<img
-<<<<<<< HEAD
-										src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no"
-=======
 										// src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no"
 										src=""
->>>>>>> master
 										class="picture-src"
 										id="wizardPicturePreview"
 										style={{ display: "block" }}
@@ -225,12 +152,6 @@ export default function CreatePost() {
 									{(() => {
 										if (buttontext === "Single") {
 											return (
-<<<<<<< HEAD
-												<img
-													src={previewImg}
-													style={{ height: "100%", width: "100%" }}
-												/>
-=======
 												<>
 													{previewImg && (
 														<>
@@ -253,7 +174,6 @@ export default function CreatePost() {
 														</>
 													)}
 												</>
->>>>>>> master
 											);
 										} else {
 											// coursal
@@ -268,28 +188,6 @@ export default function CreatePost() {
 														{previewImgs.map((each, index) => {
 															if (index == 0) {
 																return (
-<<<<<<< HEAD
-																	<div class="carousel-item active">
-																		<img
-																			src={each}
-																			class="d-block w-100"
-																			style={{ height: "245PX" }}
-																			alt="..."
-																		/>
-																	</div>
-																);
-															} else {
-																return (
-																	<div class="carousel-item">
-																		<img
-																			src={each}
-																			class="d-block w-100"
-																			style={{ height: "245PX" }}
-																			alt="..."
-																		/>
-																	</div>
-																);
-=======
 																	<>
 																		{each && (
 																			<div class="carousel-item active">
@@ -363,7 +261,6 @@ export default function CreatePost() {
 																// 		/>
 																// 	</div>
 																// );
->>>>>>> master
 															}
 														})}
 													</div>
@@ -406,9 +303,6 @@ export default function CreatePost() {
 													name="pImages"
 													onChange={(e) => {
 														const newFiles = [];
-<<<<<<< HEAD
-														setPrevFile(URL.createObjectURL(e.target.files[0]));
-=======
 														const uploadedFile = e.target.files[0];
 														if (uploadedFile.type.includes("image")) {
 															setPrevFile({
@@ -423,7 +317,6 @@ export default function CreatePost() {
 														} else {
 															alert("please select valid image or video");
 														}
->>>>>>> master
 														for (let i = 0; i < e.target.files.length; i++) {
 															newFiles.push(e.target.files[i]);
 														}
@@ -441,11 +334,6 @@ export default function CreatePost() {
 														const newFiles = [];
 														const prevFiles = [];
 														for (let i = 0; i < e.target.files.length; i++) {
-<<<<<<< HEAD
-															prevFiles.push(
-																URL.createObjectURL(e.target.files[i])
-															);
-=======
 															const uploadedFile = e.target.files[i];
 															console.log(uploadedFile);
 															if (uploadedFile.type.includes("image")) {
@@ -465,15 +353,11 @@ export default function CreatePost() {
 															// 	URL.createObjectURL(e.target.files[i])
 															// );
 
->>>>>>> master
 															newFiles.push(e.target.files[i]);
 														}
 														setFile(newFiles);
 														setPrevFiles(prevFiles);
-<<<<<<< HEAD
-=======
 														// console.log(previewImgs);
->>>>>>> master
 													}}
 												/>
 											);
@@ -496,62 +380,6 @@ export default function CreatePost() {
 								</button>
 							</div>
 						</div>
-<<<<<<< HEAD
-						<div class="input-group flex-nowrap mb-3">
-							<span class="input-group-text" id="addon-wrapping">
-								Title
-							</span>
-							<input
-								type="text"
-								name="title"
-								class="form-control"
-								aria-label="Username"
-								aria-describedby="addon-wrapping"
-								onChange={formik.handleChange}
-								value={formik.values.title}
-							/>
-						</div>
-
-						<div class="input-group flex-nowrap mb-3">
-							<span class="input-group-text" id="addon-wrapping">
-								Location
-							</span>
-							<input
-								type="text"
-								name="location"
-								class="form-control"
-								aria-label="Username"
-								aria-describedby="addon-wrapping"
-								placeholder="Sinhgad, Pune"
-								onChange={formik.handleChange}
-								value={formik.values.location}
-							/>
-						</div>
-						<div class="input-group flex-nowrap mb-3">
-							<span class="input-group-text" id="addon-wrapping">
-								Caption
-							</span>
-							<textarea
-								type="text"
-								name="caption"
-								class="form-control"
-								aria-label="caption"
-								aria-describedby="addon-wrapping"
-								style={{ whiteSpace: "pre-wrap", height: "100px" }}
-								onChange={formik.handleChange}
-								value={formik.values.caption}
-							/>
-						</div>
-
-						<div class="form-group mt-2 mb-auto">
-							<button type="submit" class="btn btn-primary" value="create">
-								Create
-							</button>
-							<Link to={"/"}>
-								<button class="btn btn-default">Cancel</button>
-							</Link>
-						</div>
-=======
 
 						<div className="m-1 p-2">
 							<div class="m-2 p-2 form-outline d-flex mb-4">
@@ -647,7 +475,6 @@ export default function CreatePost() {
 							width={480}
 							height={272}
 						/> */}
->>>>>>> master
 					</form>
 				</div>
 			</div>

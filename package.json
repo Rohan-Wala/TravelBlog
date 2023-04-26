@@ -1,34 +1,12 @@
 {
-<<<<<<< HEAD
-	"homepage": "http://Rohan-Wala.github.io/TravelBlog",
-	"name": "tlfe",
-=======
 	"name": "client",
 	"homepage": "",
->>>>>>> master
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
-		"axios": "^1.3.3",
-		"browser-router": "^0.2.0",
-		"formik": "^2.2.9",
-		"jquery": "^3.6.3",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-icons": "^4.7.1",
-		"react-loading": "^2.0.3",
-		"react-native": "^0.71.3",
-		"react-native-paper": "^5.2.0",
-		"react-popper": "^2.3.0",
-		"react-redux": "^8.0.5",
-		"react-router-dom": "^6.8.1",
-		"react-scripts": "5.0.1",
-		"redux": "^4.2.1",
-=======
 		"axios": "^1.3.4",
 		"formik": "^2.2.9",
 		"gh-pages": "^5.0.0",
@@ -43,18 +21,12 @@
 		"react-speech-recognition": "^3.10.0",
 		"redux": "^4.2.1",
 		"video-react": "^0.16.0",
->>>>>>> master
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
 		"start": "react-scripts start",
-<<<<<<< HEAD
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-=======
-		"predeploy": "npm run build", 
-    	"deploy": "gh-pages -d build", 
->>>>>>> master
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -76,11 +48,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-<<<<<<< HEAD
-	},
-	"devDependencies": {
-		"gh-pages": "^5.0.0"
-=======
->>>>>>> master
 	}
 }

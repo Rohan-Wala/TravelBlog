@@ -17,11 +17,7 @@ export default function Home() {
 	var [allpost, setpost] = useState([]);
 	useEffect(() => {
 		axios({
-<<<<<<< HEAD
-			url: "https://travellogserver-production.up.railway.app/post/getpost",
-=======
 			url: "http://localhost:5001/post/getpost",
->>>>>>> master
 			method: "get",
 		}).then(
 			(result) => {
@@ -35,26 +31,14 @@ export default function Home() {
 	}, []);
 	// console.log(allpost);
 	return (
-<<<<<<< HEAD
-		<div className=" mt-3" style={{ width: "100vh" }}>
-			<div className="text-center">
-				<img
-					src="mountain.jpg"
-					// src="./Travel_log_Client/mountain.jpg"
-=======
 		<div className=" mt-3 p-5" style={{ width: "100vh" }}>
 			<div className="text-center">
 				<img
 					src="https://storage.googleapis.com/travel_blog_sample/1680595871031raigadfort_trekkerpedia.jpg"
->>>>>>> master
 					class="img-fluid p-2"
 					alt="Responsive image"
 				></img>
 			</div>
-<<<<<<< HEAD
-			<h1>welcome</h1>
-=======
->>>>>>> master
 			<h6>
 				Sometimes all you need is to get lost in Nature to find yourself...
 			</h6>
@@ -70,25 +54,13 @@ export default function Home() {
 				</div>
 			}
 			<pre> {post.title}</pre>
-<<<<<<< HEAD
-			<pre> {post.caption}</pre>
-			<h1>welcome to my website..........................................</h1>
-			<h1>welcome</h1>
-			<h1>welcome</h1>
-=======
 			<pre> {post.caption}</pre>				
->>>>>>> master
 			{/* <div class="row">
 				{parts.map((each, index) => {
 					return <CartTemplate data={each} maxprice={2000} />;
 				})}
 			</div> */}
 			{/* rendering posts  */}
-<<<<<<< HEAD
-			<h1>welcome</h1>
-=======
-
->>>>>>> master
 			<h1>post card</h1>
 			<div class="container">
 				<section class="mx-auto my-5" style={{ maxWidth: "37rem" }}>
@@ -151,11 +123,6 @@ export default function Home() {
 					</div>
 				</section>
 			</div>
-<<<<<<< HEAD
-			<h1>welcome</h1>
-=======
-
->>>>>>> master
 			<p>
 				<a
 					class="btn btn-primary"
@@ -185,10 +152,6 @@ export default function Home() {
 					trigger.
 				</div>
 			</div>
-<<<<<<< HEAD
-			<h1>welcome</h1>
-=======
->>>>>>> master
 			<div class="dropdown">
 				<a
 					class="dropdown hidden-arrow"
@@ -220,12 +183,6 @@ export default function Home() {
 					</li>
 				</ul>
 			</div>
-<<<<<<< HEAD
-			<h1>welcome</h1>
-			<h1>welcome</h1>
-			<h1>welcome</h1>
-=======
->>>>>>> master
 		</div>
 	);
 }

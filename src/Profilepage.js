@@ -1,13 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { useParams } from "react-router-dom";
-import PostTemplate from "./PostTemplate";
-=======
 import { Link, useParams } from "react-router-dom";
 import PostTemplate from "./PostTemplate";
 import profile from "./profile.jpg";
->>>>>>> master
 
 export default function Profilepafge() {
 	var params = useParams();
@@ -18,13 +13,7 @@ export default function Profilepafge() {
 	var posts;
 	useEffect(() => {
 		axios({
-<<<<<<< HEAD
-			url:
-				"https://travellogserver-production.up.railway.app/users/getuser/" +
-				userid,
-=======
 			url: "http://localhost:5001/users/getuser/" + userid,
->>>>>>> master
 			method: "get",
 		}).then(
 			(result) => {
@@ -54,85 +43,6 @@ export default function Profilepafge() {
 	}
 
 	return (
-<<<<<<< HEAD
-		<section class="" style={{ backgroundColor: "#9de2ff;" }}>
-			<div class="container py-5 h-10">
-				<div class="  flex d-flex  h-100">
-					<div class="col">
-						<div class="card" style={{ borderRadius: "15px;" }}>
-							<div class="card-body p-4">
-								<div class="d-flex text-black">
-									<div class="flex-shrink-0">
-										<img
-											// src="mountain.jpg"
-											src={`userimg/${userData.image}`}
-											// src={`./Travel_log_Client/userimg/${userData.image}`}
-											alt="Generic placeholder image"
-											class="img-fluid mt-3"
-											style={{ width: "30vh", height: "25vh" }}
-										/>
-									</div>
-									<div class="flex-grow-1 ms-3">
-										<h5 class="mb-1">{userData.name}</h5>
-										<p class="mb-2 pb-1" style={{ color: " #2b2a2a;" }}>
-											{userData.userid}
-										</p>
-										<div
-											class="d-flex justify-content-start rounded-3 p-2 mb-2"
-											style={{ backgroundColor: "#efefef;" }}
-										>
-											<div>
-												<p class="small text-muted mb-1">Pots</p>
-												<p class="mb-0">{lposts}</p>
-											</div>
-											<div class="px-3">
-												<p class="small text-muted mb-1">Followers</p>
-												<p class="mb-0">{lFollowers}</p>
-											</div>
-											<div>
-												<p class="small text-muted mb-1">Following</p>
-												<p class="mb-0">{lFollowing}</p>
-											</div>
-										</div>
-										<div>
-											{(() => {
-												if (userData._id !== localStorage.userid) {
-													return (
-														<div class="d-flex pt-1">
-															<button
-																type="button"
-																class="btn btn-outline-primary me-1 flex-grow-1"
-															>
-																Chat
-															</button>
-															<button
-																type="button"
-																class="btn btn-primary flex-grow-1"
-															>
-																Follow
-															</button>
-														</div>
-													);
-												} else {
-													return (
-														<div class="d-flex pt-1">
-															<button
-																type="button"
-																class="btn btn-primary flex-grow-1"
-															>
-																Share
-															</button>
-														</div>
-													);
-												}
-											})()}
-
-											{/* <button type="button" class="btn btn-primary flex-grow-1">
-												Share
-											</button> */}
-										</div>
-									</div>
-=======
 		<section class="h-100 gradient-custom-2">
 			<div class="container py-5 h-100">
 				<div class="row d-flex justify-content-center align-items-center h-100">
@@ -219,34 +129,11 @@ export default function Profilepafge() {
 												})}
 										</div>
 									}
->>>>>>> master
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-<<<<<<< HEAD
-
-				<div>
-					{
-						<div className="row">
-							{userposts
-								.slice(0)
-								.reverse()
-								.map((each, index) => {
-									return (
-										<PostTemplate
-											data={each}
-											name={userData.name}
-											image={userData.image}
-										></PostTemplate>
-									);
-								})}
-						</div>
-					}
-				</div>
-=======
->>>>>>> master
 			</div>
 		</section>
 	);
