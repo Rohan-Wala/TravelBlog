@@ -6,15 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import Myrouter from "./Myrouters";
 import { Provider } from "react-redux";
 import store from "./store";
-import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<Provider store={store}>
 		<React.StrictMode>
-			<Router basename="/TravelBlog">
-				<Myrouter></Myrouter>
-			</Router>
+			<Myrouter></Myrouter>
 		</React.StrictMode>
 	</Provider>
 );

@@ -12,70 +12,70 @@ import TermsOfService from "./TermsOfService";
 
 export default function Myrouter() {
 	return (
-		// <BrowserRouter basename="/TravelBlog">
-		<Routes>
-			<Route
-				path="/"
-				element={
-					<>
-						<MYnavbar />
+		<BrowserRouter basename="/TravelBlog">
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<MYnavbar />
 
-						<Home />
-					</>
-				}
-			></Route>
-			<Route path="/signup" element={<Signup></Signup>}></Route>
-			<Route
-				path="/updateprofile/:userid"
-				element={
-					<>
-						<MYnavbar></MYnavbar>
-						<EditProfile></EditProfile>
-					</>
-				}
-			></Route>
-			<Route path="/login" element={<Login></Login>}></Route>
-			<Route
-				path="/termsofservice"
-				element={<TermsOfService></TermsOfService>}
-			></Route>
-			<Route
-				path="/radio"
-				element={
-					<>
-						<MYnavbar />
-						<Radiobut />
-					</>
-				}
-			></Route>
-			<Route
-				path="/uploadimages"
-				element={
-					<>
-						<MYnavbar />
-						<Uploadimg />
-					</>
-				}
-			></Route>
-			<Route
-				path="/profile/:userid"
-				element={
-					<>
-						<MYnavbar />
-						<Profilepage />
-					</>
-				}
-			></Route>
-			<Route
-				path="/createPost"
-				element={
-					<>
-						<MYnavbar />
-						<CreatePost />
-					</>
-				}
-			></Route>
-		</Routes>
-		// </BrowserRouter>
+							<Home />
+						</>
+					}
+				></Route>
+				<Route path="/signup" element={<Signup></Signup>}></Route>
+				<Route
+					path="/updateprofile/:userid"
+					element={
+						<>
+							<MYnavbar></MYnavbar>
+							<EditProfile></EditProfile>
+						</>
+					}
+				></Route>
+				<Route path="/login" element={<Login></Login>}></Route>
+				<Route
+					path="/termsofservice"
+					element={<TermsOfService></TermsOfService>}
+				></Route>
+				<Route
+					path="/radio"
+					element={
+						<>
+							<MYnavbar />
+							<Radiobut />
+						</>
+					}
+				></Route>
+				<Route
+					path="/uploadimages"
+					element={
+						<>
+							<MYnavbar />
+							<Uploadimg />
+						</>
+					}
+				></Route>
+				<Route
+					path="/profile/:userid"
+					element={
+						<>
+							<MYnavbar />
+							<Profilepage />
+						</>
+					}
+				></Route>
+				<Route
+					path="/createPost"
+					element={
+						<>
+							<MYnavbar />
+							<CreatePost />
+						</>
+					}
+				></Route>
+			</Routes>
+		</BrowserRouter>
 	);
 }

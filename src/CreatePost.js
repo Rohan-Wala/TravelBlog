@@ -7,7 +7,6 @@ import SpeechRecognition, {
 import "./Createpost.css";
 import axios from "axios";
 import { FaMicrophone } from "react-icons/fa";
-import { RxCross1 } from "react-icons/rx";
 import { FaMicrophoneSlash } from "react-icons/fa";
 import post from "./CreatePost.jpg";
 import { ToastContainer, toast } from "react-toastify";
@@ -112,7 +111,7 @@ export default function CreatePost() {
 
 	//function to handle  multiple files
 	const onFileChange = (e) => {
-		const newFiles = [];
+		// const newFiles = [];
 		const prevFiles = [];
 		for (let i = 0; i < e.target.files.length; i++) {
 			const uploadedFile = e.target.files[i];
@@ -156,6 +155,7 @@ export default function CreatePost() {
 		// });
 		setSeen(!seen);
 	};
+
 	//re arrange files
 	const onOrderChange = (e, oldIndex, newIndex) => {
 		e.preventDefault();
@@ -198,7 +198,7 @@ export default function CreatePost() {
 	// drag drop ends
 
 	function singleAndMultiple() {
-		if (buttontext == "Single") {
+		if (buttontext === "Single") {
 			setButtonText("Multiple");
 			setFile([]);
 			setPrevFile();
