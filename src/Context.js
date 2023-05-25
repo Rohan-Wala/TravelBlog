@@ -23,4 +23,7 @@ const Datecontext=createContext((date)=>{
       
 });
 
+
+  
+
 export default Datecontext;

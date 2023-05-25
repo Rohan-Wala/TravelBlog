@@ -6,6 +6,8 @@ import { CiLogin } from "react-icons/ci";
 import { GoDiffAdded } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 export default function MYnavbar() {
 	var isLoggedIn = useSelector((state) => state.isLoggedIn);
 	var dispatch = useDispatch();
@@ -13,19 +15,32 @@ export default function MYnavbar() {
 	function logout() {
 		localStorage.token = "";
 		localStorage.userData = {};
-		console.log("hello");
+		localStorage.userid = "";
+		// console.log("hello");
 		dispatch({
 			type: "LOGOUT",
 		});
 		navigate("/login");
 	}
 	// console.log("log in navbar", isLoggedIn);
+	let [img, setImg] = useState("");
+	useEffect(() => {
+		axios
+			.get("http://localhost:5001/users/getuser/" + localStorage.userid, {
+				headers: { authorization: localStorage.token },
+			})
+			.then((res) => {
+				setImg(res.data.data[0].image);
+			})
+			.catch((err) => console.log(err));
+	});
+
 	return (
 		<nav
 			class="navbar navbar-expand-lg navbar-light m-auto  fixed-top"
 			style={{ width: "100vh", backgroundColor: "#EB4D4B" }}
 		>
-			<div class="container-fluid  ">
+			<div class="container-fluid">
 				<Link
 					to={"/"}
 					style={{ textDecoration: "none", color: "white" }}
@@ -49,15 +64,19 @@ export default function MYnavbar() {
 				</button>
 				<div class="collapse navbar-collapse " id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						{/* <li class="nav-item ms-3 mt-1">
+							{isLoggedIn && (
+								<Link to={"/"}>
+									<BiSearch size={"1.7rem"} color="white"></BiSearch>
+								</Link>
+							)}
+						</li> */}
 						<li class="nav-item ms-3 mt-1">
-							{isLoggedIn && (<Link to={"/"}>
-								<BiSearch size={"1.7rem"} color="white"></BiSearch>
-							</Link>)}
-						</li>
-						<li class="nav-item ms-3 mt-1">
-							{isLoggedIn && (<Link to={"/createPost"}>
-								<GoDiffAdded size={"1.5rem"} color="white"></GoDiffAdded>
-							</Link>)}
+							{isLoggedIn && (
+								<Link to={"/createPost"}>
+									<GoDiffAdded size={"1.5rem"} color="white"></GoDiffAdded>
+								</Link>
+							)}
 						</li>
 					</ul>
 					<form class="d-flex">
@@ -65,7 +84,12 @@ export default function MYnavbar() {
 							{isLoggedIn && (
 								<div>
 									<Link to={"/profile/" + localStorage.userid}>
-										<CgProfile size={"2.5rem"} color="white"></CgProfile>
+										<img
+											src={img}
+											height="40px"
+											width="40px"
+											style={{ borderRadius: "20px" }}
+										/>
 									</Link>
 								</div>
 							)}
@@ -89,12 +113,6 @@ export default function MYnavbar() {
 								></BsThreeDotsVertical>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuicon">
-								<li>
-									<a class="dropdown-item" href="#">
-										{" "}
-										<AiOutlineSetting></AiOutlineSetting>Settings
-									</a>
-								</li>
 								<li>
 									<a class="dropdown-item" onClick={logout}>
 										<CiLogin></CiLogin>Logout

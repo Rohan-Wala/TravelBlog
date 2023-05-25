@@ -58,7 +58,7 @@
 
 .card {
 	background-color: transparent;
-	backdrop-filter: blur(12px);
+	/* backdrop-filter: blur(12px); */
 	/* border-color: transparent;	 */
 }
 /* .container-fluid{

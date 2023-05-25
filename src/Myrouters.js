@@ -7,6 +7,8 @@ import Radiobut from "./Radiobut";
 import Signup from "./Signup";
 import Uploadimg from "./Uploadimg";
 import CreatePost from "./CreatePost";
+import EditProfile from "./EditProfile";
+import TermsOfService from "./TermsOfService";
 
 export default function Myrouter() {
 	return (
@@ -17,12 +19,26 @@ export default function Myrouter() {
 					element={
 						<>
 							<MYnavbar />
+
 							<Home />
 						</>
 					}
 				></Route>
 				<Route path="/signup" element={<Signup></Signup>}></Route>
+				<Route
+					path="/updateprofile/:userid"
+					element={
+						<>
+							<MYnavbar></MYnavbar>
+							<EditProfile></EditProfile>
+						</>
+					}
+				></Route>
 				<Route path="/login" element={<Login></Login>}></Route>
+				<Route
+					path="/termsofservice"
+					element={<TermsOfService></TermsOfService>}
+				></Route>
 				<Route
 					path="/radio"
 					element={
@@ -50,7 +66,6 @@ export default function Myrouter() {
 						</>
 					}
 				></Route>
-
 				<Route
 					path="/createPost"
 					element={

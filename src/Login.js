@@ -19,6 +19,18 @@ export default function Login() {
 			email: "",
 			password: "",
 		},
+		validate: (values) => {
+			let errors = {};
+
+			if (values.email.length === 0) {
+				errors.email = "This field is required";
+			}
+			if (values.password.length === 0) {
+				errors.password = "This field is required";
+			}
+
+			return errors;
+		},
 		onSubmit: (values) => {
 			userdata = values;
 			// console.log("log in login", userdata);
@@ -33,7 +45,7 @@ export default function Login() {
 			})
 				.then(
 					(result) => {
-						console.log(result.data);
+						// console.log(result.data);
 						// console.log(result.data.);
 						if (result.data.token) {
 							localStorage.token = result.data.token;
@@ -44,16 +56,6 @@ export default function Login() {
 							});
 							navigate("/");
 						}
-
-						// let sampleDate = new Date(result.data.userData.bdate);
-						// let finaldate =
-						// 	sampleDate.getDate() +
-						// 	"/" +
-						// 	sampleDate.getMonth() +
-						// 	"/" +
-						// 	sampleDate.getFullYear();
-
-						// console.log(finaldate);
 
 						if (result.data.message == "user not found") {
 							setEmailMes(true);
@@ -69,11 +71,11 @@ export default function Login() {
 						}
 					},
 					(err) => {
-						console.log("log in err part", err);
+						// console.log("log in err part", err);
 					}
 				)
 				.catch((err) => {
-					console.log(err);
+					// console.log(err);
 				});
 		},
 	});
@@ -91,7 +93,7 @@ export default function Login() {
 			<section class=" gradient-custom">
 				<div class="container-fluid py-5">
 					<div class="row justify-content-center align-items-center h-100">
-						<h2 className="logo">Login to your account</h2>
+						<h2 className="logo text-white">Login to your account</h2>
 						<div class="col-12 ">
 							<div
 								class="card shadow-2-strong card-registration"
@@ -109,16 +111,22 @@ export default function Login() {
 													<input
 														type="email"
 														id="email"
-														class="form-control "
+														class="form-control text-dark"
 														onChange={formik.handleChange}
 														value={formik.values.email}
 														placeholder="&#xf007; Email Address"
+														autoComplete="off"
 														style={{
 															fontFamily: "Arial, 'Font Awesome 5 Free'",
 														}}
 													/>
+													{formik.errors.email ? (
+														<div style={{ color: "red" }}>
+															{formik.errors.email}
+														</div>
+													) : null}
 
-													<div className="text-danger">
+													<div className="text-warning">
 														{emailmes && "Can't find User"}
 													</div>
 												</div>
@@ -132,7 +140,7 @@ export default function Login() {
 													<input
 														type="password"
 														id="password"
-														class="form-control "
+														class="form-control text-dark "
 														onChange={formik.handleChange}
 														value={formik.values.password}
 														placeholder="&#xf084; Password"
@@ -140,33 +148,19 @@ export default function Login() {
 															fontFamily: "Arial, 'Font Awesome 5 Free'",
 														}}
 													/>
+													{formik.errors.password ? (
+														<div style={{ color: "red" }}>
+															{formik.errors.password}
+														</div>
+													) : null}
 												</div>
-												<div className="text-danger">
+												<div className="text-warning">
 													{passmes && "Check your Password"}
 												</div>
 											</div>
 										</div>
 
 										<div class="row mb-4">
-											<div class="col d-flex justify-content-center">
-												<div class="form-check">
-													<input
-														class="form-check-input"
-														type="checkbox"
-														value=""
-														id="form2Example31"
-														checked
-													/>
-													<label class="form-check-label" for="form2Example31">
-														{" "}
-														Remember me{" "}
-													</label>
-												</div>
-											</div>
-
-											<div class="col">
-												<a href="#!">Forgotten password?</a>
-											</div>
 											{/* <button
 											type="button"
 											class="btn btn-primary btn-block mb-4 mt-4"
@@ -174,7 +168,7 @@ export default function Login() {
 											Sign in
 										</button> */}
 											<input
-												class="btn btn-primary btn-lg mb-4 mt-4"
+												class="btn btn-primary btn-lg mb-4 mt-4 fw-bold"
 												type="submit"
 												value="Login"
 											/>
@@ -182,7 +176,7 @@ export default function Login() {
 
 											<div class="text-center">
 												<Link to={"/signup"}>
-													<button className="btn btn-block btn-lg gradient-custom-4">
+													<button className="btn btn-block btn-lg gradient-custom-4 fw-bold text-white	">
 														Create new account
 													</button>
 												</Link>

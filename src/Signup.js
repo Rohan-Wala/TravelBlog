@@ -4,17 +4,56 @@ import { Field, Formik, useFormik, Form } from "formik";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import login from "./login.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+
 export default function Signup() {
 	const [file, setFile] = useState();
 	const [previewImg, setPrevFile] = useState();
+	var [isTaken, setIsTaken] = useState(false);
+	const [agree, setAgree] = useState(false);
 	var navigate = useNavigate();
-	// var userimg;
-	// function handleChange() {
-	// 	// setFile(URL.createObjectURL(e.target.files[0]));
-	// 	// setFieldValue("file", e.target.files[0]);
-	// 	formdata.append("avatar", file);
-	// }
 
+	function uploadimage() {
+		let formdata = new FormData();
+		formdata.append("avatar", file);
+		axios({
+			url: "http://localhost:5001/users/upload",
+			method: "post",
+			data: formdata,
+			headers: {
+				"content-type": "multipart/form-data",
+			},
+		})
+			.then((result) => {
+				// console.log(result.data);
+			})
+			.catch((err) => {
+				// console.log(err);
+			});
+	}
+
+	const handleUserIdChange = (e) => {
+		axios({
+			url: "http://localhost:5001/users/checkUserName",
+			method: "post",
+			data: { userName: e.target.value },
+		}).then(
+			(result) => {
+				if (result.data.message === "Username unavailable") {
+					setIsTaken(true);
+				}
+				if (result.data.message === "Username available") {
+					setIsTaken(false);
+				}
+				// console.log("This is result", result)
+			},
+			(err) => {
+				// console.log(err)
+			}
+		);
+	};
 	var uservalues = {};
 	var userdata = {};
 	const formik = useFormik({
@@ -23,94 +62,102 @@ export default function Signup() {
 			email: "",
 			userid: "",
 			password: "",
-			bdate: "",
-			gender: "",
-			city: "",
-			phone: "",
+		},
+		validate: (values) => {
+			let errors = {};
+			if (values.name.length === 0) {
+				errors.name = "Name is required";
+			}
+			if (values.email.length === 0) {
+				errors.email = "Email is required";
+			}
+			if (values.userid.length === 0) {
+				errors.userid = "UserName is required";
+			}
+
+			if (values.password.length === 0) {
+				errors.password = "password is required";
+			} else if (values.password.length !== 0) {
+				let pval = values.password.match(
+					/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/
+				);
+				// console.log(pval);
+				if (pval == null) {
+					errors.password =
+						"Password Must contain one Capital,small letter one number and must be atleast 8 characters";
+				}
+			}
+
+			return errors;
 		},
 		onSubmit: (values) => {
-			let formdata = new FormData();
-			formdata.append("avatar", file);
-			//fields
-			formdata.append("name", values.name);
-			formdata.append("email", values.email);
-			formdata.append("userid", values.userid);
-			formdata.append("password", values.password);
-
-			// axios({
-			// 	url: "http://localhost:5001/users/upload",
-			// 	method: "post",
-			// 	data: formdata,
-			// 	headers: {
-			// 		"content-type": "multipart/form-data",
-			// 	},
-			// })
-			// 	.then((result) => {
-			// 		// console.log("log in upload file client side");
-			// 		// console.log(result);
-			// 		userdata.img = result.data;
-			// 	})
-			// 	.catch((err) => {
-			// 		console.log(err);
-			// 	});
-
-			axios({
-				url: "http://localhost:5001/users/signup",
-				method: "post",
-				data: formdata,
-			}).then(
-				(res) => {
-					console.log(res.data);
-					alert(res.mes);
-					navigate("/login");
-				},
-				(err) => {
-					console.log(err);
-				}
+			// console.log(file);
+			let pval = values.password.match(
+				/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
 			);
+			// console.log(pval);
+
+			if (file != null) {
+				let formdata = new FormData();
+				formdata.append("avatar", file);
+				//fields
+				formdata.append("name", values.name);
+				formdata.append("email", values.email);
+				formdata.append("userid", values.userid);
+				formdata.append("password", values.password);
+				axios({
+					url: "http://localhost:5001/users/signup",
+					method: "post",
+					data: formdata,
+				}).then(
+					(res) => {
+						// console.log(res.data);
+						console.log(res.data.mes);
+						if (res.data.mes == "already exist user") {
+							return toast.error("This Email id is already registered", {
+								position: toast.POSITION.TOP_CENTER,
+								autoClose: 2000,
+								// navigate("/signup");
+							});
+						} else {
+							setTimeout(() => {
+								navigate("/login");
+							}, 4000);
+
+							return toast.success(
+								"A Verification mail has been sent to the given email id",
+								{
+									position: toast.POSITION.TOP_CENTER,
+									autoClose: 3000,
+								}
+							);
+						}
+					},
+					(err) => {
+						// console.log(err);
+					}
+				);
+			} else {
+				return toast.error("Please select a display picture", {
+					position: toast.POSITION.TOP_CENTER,
+				});
+			}
 		},
 	});
-
-	const handelradio = (e) => (formik.values.gender = e.target.value);
-	// var user = {};
-	// function getname(e) {
-	// 	user.name = e.target.value;
-	// }
-	// function getpasswoed(e) {
-	// 	user.password = e.target.value;
-	// }
-	// function getemail(e) {
-	// 	user.email = e.target.value;
-	// }
-	// function getuserdi(e) {
-	// 	user.userid = e.target.value;
-	// }
-	// function getbdate(e) {
-	// 	user.bdate = e.target.value;
-	// }
-	// function getcity(e) {
-	// 	user.city = e.target.value;
-	// }
-	// function getphone(e) {
-	// 	user.phone = e.target.value;
-	// }
-	// function getgender(e) {
-	// 	userdata.gender = e.target.value;
-	// 	// console.log(e.target.value);
-	// 	// console.log(userdata);
-	// }
-	// use formik instated of this
+	const checkboxHandler = () => {
+		setAgree(!agree);
+	};
 
 	return (
 		<div
 			className="img"
 			style={{ backgroundImage: `url(${login})`, "background-size": "cover" }}
 		>
-			<section class="vh-100">
+			<section class="vh-200">
 				<div class="container py-2 h-100">
 					<div class="row justify-content-center align-items-center h-100">
 						<div class="col-12 ">
-							<h2 className="logo">Create an account</h2>
+							<h2 className="logo text-white">Create an account</h2>
 							<div
 								class="card shadow-2-strong card-registration"
 								style={{ borderRadius: "15px;" }}
@@ -133,11 +180,17 @@ export default function Signup() {
 												<input
 													type="file"
 													name="avatar"
+													id="file"
 													onChange={(e) => {
 														setPrevFile(URL.createObjectURL(e.target.files[0]));
 														setFile(e.target.files[0]);
 													}}
 												/>
+												{formik.errors.file ? (
+													<div style={{ color: "red" }}>
+														{formik.errors.file}
+													</div>
+												) : null}
 
 												<img
 													// className="card-img-top"
@@ -158,6 +211,9 @@ export default function Signup() {
 												placeholder="&#xf007; Enter your name"
 												style={{ fontFamily: "Arial, 'Font Awesome 5 Free'" }}
 											/>
+											{formik.errors.name ? (
+												<div style={{ color: "red" }}>{formik.errors.name}</div>
+											) : null}
 										</div>
 
 										<div class="form-outline mb-3">
@@ -170,30 +226,49 @@ export default function Signup() {
 												placeholder="&#xf0e0; Enter Email"
 												style={{ fontFamily: "Arial, 'Font Awesome 5 Free'" }}
 											/>
+											{formik.errors.email ? (
+												<div style={{ color: "red" }}>
+													{formik.errors.email}
+												</div>
+											) : null}
 										</div>
 
 										<div class="form-outline mb-3">
 											<input
 												type="text"
 												id="userid"
-												class="form-control "
+												class="form-control text-dark"
 												onChange={formik.handleChange}
+												onInput={handleUserIdChange}
 												value={formik.values.userid}
 												placeholder="&#xf507; Enter username"
 												style={{ fontFamily: "Arial, 'Font Awesome 5 Free'" }}
 											/>
+											{formik.errors.userid ? (
+												<div style={{ color: "red" }}>
+													{formik.errors.userid}
+												</div>
+											) : null}
+											<span className="text-danger">
+												{isTaken && "Username not available"}
+											</span>
 										</div>
 
 										<div class="form-outline mb-3">
 											<input
 												type="password"
 												id="password"
-												class="form-control "
+												class="form-control text-dark "
 												onChange={formik.handleChange}
 												value={formik.values.password}
 												placeholder="&#xf084; Enter your password"
 												style={{ fontFamily: "Arial, 'Font Awesome 5 Free'" }}
 											/>
+											{formik.errors.password ? (
+												<div style={{ color: "red" }}>
+													{formik.errors.password}
+												</div>
+											) : null}
 										</div>
 
 										<div class="form-check d-flex justify-content-center mb-2">
@@ -201,34 +276,26 @@ export default function Signup() {
 												class="form-check-input me-2"
 												type="checkbox"
 												value=""
-												id="form2Example3cg"
+												id="agree"
+												onChange={checkboxHandler}
 											/>
-											<label class="form-check-label" for="form2Example3g">
+											<label class="form-check-label" for="agree">
 												I agree all statements in{" "}
-												<a href="#!" class="text-body">
+												<Link to="/termsofservice" class="text-body">
 													<u>Terms of service</u>
-												</a>
+												</Link>
 											</label>
 										</div>
 
-										{/* <div class="d-flex justify-content-center">
-											<button
-												type="button"
-												class="btn btn-block btn-lg gradient-custom-4"
-											>
-												Register
-											</button>
-										</div> */}
-
 										<div class="d-flex justify-content-center">
 											<input
-												class="btn btn-block btn-lg gradient-custom-4"
+												class="btn btn-block btn-lg gradient-custom-4 fw-bold"
 												type="submit"
 												value="Register"
+												disabled={!agree}
 											/>
 										</div>
-
-										<p class="text-center text-muted mt-5 mb-0">
+										<p class="text-center text-muted mt-2 mb-0">
 											Have already an account?
 											<Link to="/login" class="fw-bold text-body">
 												<u>Login here</u>
@@ -241,6 +308,7 @@ export default function Signup() {
 					</div>
 				</div>
 			</section>
+			<ToastContainer />
 		</div>
 	);
 }
