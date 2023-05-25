@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import {
+	BrowserRouter,
+	Route,
+	Router,
+	Routes,
+	HashRouter,
+} from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import MYnavbar from "./Mynavbar";
@@ -12,7 +18,7 @@ import TermsOfService from "./TermsOfService";
 
 export default function Myrouter() {
 	return (
-		<BrowserRouter basename="/TravelBlog">
+		<HashRouter basename="/TravelBlog">
 			<Routes>
 				<Route
 					path="/"
@@ -76,6 +82,6 @@ export default function Myrouter() {
 					}
 				></Route>
 			</Routes>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
